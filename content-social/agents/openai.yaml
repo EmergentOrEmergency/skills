@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Social"
+  short_description: "Create and distribute channel-native content"
+  default_prompt: "Use $content-social to create an approval-ready content calendar in the author's voice."

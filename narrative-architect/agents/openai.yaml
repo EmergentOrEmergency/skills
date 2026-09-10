@@ -1,0 +1,4 @@
+interface:
+  display_name: "Narrative Architect"
+  short_description: "Develop and revise compelling fiction"
+  default_prompt: "Use $narrative-architect to develop this fiction project while preserving voice and continuity."

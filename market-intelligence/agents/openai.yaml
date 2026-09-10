@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Intelligence"
+  short_description: "Research readers, markets, and positioning"
+  default_prompt: "Use $market-intelligence to validate this book's market and positioning with current evidence."

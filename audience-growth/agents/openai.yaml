@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audience Growth"
+  short_description: "Build an ethical, qualified reader audience"
+  default_prompt: "Use $audience-growth to design an ethical reader-growth system for this book."

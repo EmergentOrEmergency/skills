@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ads Growth"
+  short_description: "Run controlled, profitable paid-media tests"
+  default_prompt: "Use $ads-growth to design a budget-capped ad experiment for this book."

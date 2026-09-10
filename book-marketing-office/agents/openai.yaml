@@ -1,0 +1,4 @@
+interface:
+  display_name: "Book Marketing Office"
+  short_description: "Orchestrate measurable book marketing"
+  default_prompt: "Use $book-marketing-office to run a guarded, measurable marketing cycle for this book."

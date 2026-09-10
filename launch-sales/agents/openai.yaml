@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch Sales"
+  short_description: "Plan book launches and sales operations"
+  default_prompt: "Use $launch-sales to build a measured launch or relaunch plan for this book."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analytics Cfo"
+  short_description: "Turn marketing data into financial decisions"
+  default_prompt: "Use $analytics-cfo to evaluate this book's marketing economics and decide what to stop or scale."
