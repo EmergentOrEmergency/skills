@@ -7,6 +7,8 @@ description: Design ethical audience-building systems for books across owned cha
 
 Grow a relevant, reachable reader base rather than raw follower counts. Optimize for qualified attention, consented contact, trust, repeat engagement, referrals, and purchase intent.
 
+For short stories and serial fiction, use `fiction-discovery` when available to choose the entry story, release order, and publication route. Build the subscriber/community journey around its reading promise and schedule; track next-story clicks separately from confirmed return reading.
+
 ## Map the audience system
 
 Define primary and secondary reader segments by situation, motivation, desired experience, objections, comparable affinities, discovery behavior, and preferred channel. Avoid invented personas with unsupported demographic detail.

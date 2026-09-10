@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fiction Discovery"
+  short_description: "Find readers for short stories and series"
+  default_prompt: "Use $fiction-discovery to choose representative stories or excerpts, research suitable publication routes, and build a measurable reader-discovery plan."

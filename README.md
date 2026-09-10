@@ -7,6 +7,7 @@ Reusable Codex and ChatGPT skills for fiction development and autonomous, eviden
 | Skill | Purpose |
 |---|---|
 | [`narrative-architect`](./narrative-architect/) | Develop, outline, draft, critique, and revise fiction while preserving voice, point of view, and continuity. |
+| [`fiction-discovery`](./fiction-discovery/) | Find readers for collections, linked series, serial narratives, and introspective first-person fiction through samples, publication routes, and reader-return experiments. |
 | [`book-marketing-office`](./book-marketing-office/) | Orchestrate research, strategy, content, launch, paid growth, measurement, and iteration as an accountable book CMO. |
 | [`market-intelligence`](./market-intelligence/) | Research readers, comparable titles, category dynamics, positioning, and discoverability. |
 | [`audience-growth`](./audience-growth/) | Build an ethical, consent-aware reader audience across owned channels, communities, and partnerships. |
@@ -17,7 +18,7 @@ Reusable Codex and ChatGPT skills for fiction development and autonomous, eviden
 
 ## Marketing office architecture
 
-`book-marketing-office` coordinates six focused marketing skills through a repeatable loop:
+`book-marketing-office` coordinates seven focused marketing skills through a repeatable loop:
 
 ```text
 baseline -> research -> strategy -> production -> distribution
@@ -33,6 +34,25 @@ The CMO skill also includes reusable references and standard-library Python util
 - import-ready content calendars;
 - sales-window anomaly monitoring;
 - experiment prioritization.
+
+## Fiction discovery
+
+`fiction-discovery` adds two complementary workflows:
+
+- **Collections and series:** choose a representative entry story, distinguish independent stories from dependent installments, allocate full releases versus excerpts, research venues, and design a sustainable return-reading path.
+- **Introspective first-person fiction:** identify concrete emotional conflict, select excerpts preserving voice and ambiguity, and prepare situation-led, voice-led, or audio-reading presentations.
+
+The skill checks relevant publication commitments before public release, distinguishes observed reading from click/open proxies, and connects to the CMO, content, and audience skills. It also works standalone. Installing it does not publish stories.
+
+Example requests:
+
+```text
+Use $fiction-discovery to choose an entry story for this Italian collection,
+research publication routes, and prepare a four-week discovery pilot.
+
+Use $fiction-discovery to promote this introspective first-person story:
+select a faithful excerpt, draft two presentations, and prepare a reading brief.
+```
 
 ## Structure
 

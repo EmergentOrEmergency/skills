@@ -7,6 +7,7 @@ Read this reference when starting a campaign cycle, resolving conflicts between 
 | Need | Owner | Required handoff |
 |---|---|---|
 | Market, comps, reader evidence, positioning | `market-intelligence` | Evidence pack, confidence, positioning hypotheses |
+| Short fiction, series, voice-led discovery, publication routes | `fiction-discovery` | Story IDs/versions, release map, venue evidence, publication boundaries, reader-return experiment |
 | Owned audience, community, partners, outreach | `audience-growth` | Segment, consent basis, batch, approval state |
 | Editorial system, channel copy, scheduling | `content-social` | Content IDs, experiment IDs, exact payloads |
 | Launch, storefront, promotion, email | `launch-sales` | Critical path, dependencies, approval queue |

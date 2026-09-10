@@ -36,6 +36,7 @@ Read [references/operating-model.md](references/operating-model.md) for routing 
 Use the narrowest relevant specialist when available:
 
 - `$market-intelligence`: category, competitors, reviews, reader demand, positioning, keywords, and evidence quality.
+- `$fiction-discovery`: entry stories, collection/serial release plans, introspective first-person promotion, venue selection, and reader-return experiments.
 - `$audience-growth`: owned audience, communities, partnerships, reader journey, and ethical outreach.
 - `$content-social`: content pillars, channel adaptations, creative briefs, calendars, scheduling payloads, and routine engagement drafts.
 - `$launch-sales`: launch/relaunch plan, storefront conversion, promotions, email sequences, and operational dependencies.

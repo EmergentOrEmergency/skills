@@ -7,6 +7,8 @@ description: Turn a book's positioning and author voice into channel-native cont
 
 Create content that earns qualified attention and moves readers to a defined next step. Start from the approved book promise, audience, brand voice, claims, spoilers, channels, cadence, and conversion destination.
 
+For short-fiction campaigns, use the entry story, excerpt boundaries, reading order, and next-reader action from `fiction-discovery` when available. This skill handles channel adaptations; story selection and full-text release decisions belong to that discovery plan. Preserve source/version and distinguish verbatim excerpts from adaptations.
+
 ## Content system
 
 Choose 3-5 durable pillars tied to reader interest, not merely announcements. For each pillar define its job, proof source, formats, calls to action, and prohibited angles. Balance discovery, trust, product relevance, and conversion; do not make every post a direct sale.
