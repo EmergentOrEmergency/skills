@@ -35,7 +35,9 @@ This test is the backbone of the whole app. It converts every later question —
 
 Read [references/overlay-and-tracking.md](references/overlay-and-tracking.md) for the transform chain and the Compose overlay.
 
-Boxes come out of the model in the coordinate space of the letterboxed, rotated, possibly mirrored tensor that was fed to it. They must be drawn in the coordinate space of a `PreviewView` that is itself cropping the sensor output to fill its own aspect ratio. Compose each step deliberately — undo letterbox, apply rotation, apply front-camera mirroring, apply preview crop and scale — rather than tuning offsets until it looks right on one phone. Hand-tuned constants pass on the device you tested and fail on every other aspect ratio.
+Boxes come out of the model in the coordinate space of the letterboxed, rotated, possibly mirrored tensor that was fed to it. They must be drawn in the coordinate space of a `PreviewView` that is itself cropping the sensor output to fill its own aspect ratio.
+
+Check first whether `CameraController` is an option: an analyzer that reports `COORDINATE_SYSTEM_VIEW_REFERENCED` receives the sensor-to-view matrix from CameraX through `updateTransform`, which removes most of this problem at the source. When it is not — a directly bound `ImageAnalysis` is not integrated with the preview — compose each step deliberately: undo letterbox, apply rotation, apply front-camera mirroring, apply preview crop and scale. Either way, never tune offsets until it looks right on one phone; hand-tuned constants pass on the device you tested and fail on every other aspect ratio.
 
 The cheap diagnostic: draw the model's input rectangle as an outline on the overlay. If that outline does not sit exactly over the region the model actually sees, the transform is wrong and no amount of box-level adjustment will fix it.
 

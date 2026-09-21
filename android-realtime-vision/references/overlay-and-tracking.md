@@ -70,7 +70,25 @@ Use `min` instead for `FIT_CENTER`. During development `FIT_CENTER` is the frien
 
 Request the same aspect ratio for preview and analysis. When they differ, the two use cases receive different crops of the sensor and the boxes cannot be made to line up by any transform applied after the fact — a genuinely confusing failure, because the maths looks correct.
 
-CameraX also ships transform helpers under `androidx.camera.view.transform`. Their API has shifted across versions and parts have been experimental, so check what your version actually offers before depending on them; keep the explicit maths as the version your tests pin, since that is what you can unit-test off-device.
+## Letting CameraX supply the matrix
+
+Before hand-rolling any of this, check whether the project can use `CameraController`, because CameraX will then do the hard part for you.
+
+Implement `ImageAnalysis.Analyzer.getTargetCoordinateSystem()` to return `COORDINATE_SYSTEM_VIEW_REFERENCED`, and CameraX calls your `updateTransform(Matrix)` with the transformation from the camera sensor to `PreviewView` coordinates — rotation, mirroring, crop, and scale type already composed. Apply that matrix to your boxes and the entire class of per-device alignment bugs disappears, because the framework derives it from the actual stream configuration instead of from your assumptions about it.
+
+The constraint is specific: this requires `CameraController` (camera-view), which integrates analysis with `PreviewView`. An `ImageAnalysis` bound directly through `bindToLifecycle` is not integrated with the preview, so there `getTargetCoordinateSystem()` stays `COORDINATE_SYSTEM_ORIGINAL` and the transform is yours to write. Choose the controller unless you need something it does not expose; the manual path is a cost, not a virtue.
+
+Two things the matrix does not cover. It maps from the analysis stream's coordinate space, so un-letterboxing from model space to stream space is still your code — the step above. And it tells you nothing about tracking or smoothing.
+
+Keep the explicit maths implemented and unit-tested even when the controller supplies the matrix. It is what you can test off-device, and it is what you reach for when the controller route is unavailable.
+
+## Causes that hide behind the obvious ones
+
+When the box positions are wrong and the transform chain looks right, these are the usual remaining suspects:
+
+- **`imageProxy.cropRect`** — the analysis buffer can carry a crop region that is not the full buffer. Ignoring it shifts and scales everything, and it is invisible in code that only reads `width` and `height`.
+- **Stale `targetRotation`** — an activity that handles configuration changes itself, rather than being recreated, keeps reporting the old rotation until you update the use case.
+- **Mismatched view rectangles in Compose** — `AndroidView` and the `Canvas` drawn over it must occupy exactly the same rectangle. Padding, insets, or a differently-sized parent on one of them produces a constant offset that survives every correction you make to the maths, because the maths is not where it comes from.
 
 ## Testing the transform
 
