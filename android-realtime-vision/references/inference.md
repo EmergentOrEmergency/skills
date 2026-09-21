@@ -36,9 +36,13 @@ Load the model's metadata manifest in the same step and validate it. Compare the
 
 ## Preprocessing and letterboxing
 
-Resize to the model's input size while preserving aspect ratio, padding the remainder with a constant colour. Stretching instead distorts the objects away from what the model saw in training, and costs accuracy in a way that is hard to attribute later.
+Match the reference implementation's resize exactly. Read it before writing any preprocessing code — this is a two-minute check that protects every accuracy number the project has measured.
 
-Record the scale factor and the pad offsets. They are the inverse transform that turns model-space boxes back into frame-space boxes, and [overlay-and-tracking.md](overlay-and-tracking.md) depends on them.
+Letterboxing (resize preserving aspect ratio, pad the remainder) is the better practice and what most detectors are trained with, so it is the right default when you are choosing. But it is not universal: plenty of pipelines simply stretch to the input size, and Ultralytics' own Python export path and many evaluation scripts do exactly that. If the reference stretches, the model's measured precision and recall were obtained on stretched input, and letterboxing in the app silently invalidates every one of those numbers — the app will not crash, it will just no longer be the model that was evaluated.
+
+So the rule is parity, not geometry. When the reference stretches and you believe letterboxing would be better, change it in the training repository, re-measure, and update the contract — do not fix it unilaterally on the app side.
+
+Record the scale factor and the pad offsets either way — a stretch is just the degenerate case with independent x and y scales and zero padding. They are the inverse transform that turns model-space boxes back into frame-space boxes, and [overlay-and-tracking.md](overlay-and-tracking.md) depends on them.
 
 ```kotlin
 data class Letterbox(val scale: Float, val padX: Float, val padY: Float)
