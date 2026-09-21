@@ -1,6 +1,6 @@
 # Skills
 
-Reusable Codex and ChatGPT skills for fiction development and autonomous, evidence-led book marketing.
+Reusable Codex and ChatGPT skills for fiction development, autonomous evidence-led book marketing, and on-device mobile computer vision.
 
 ## Included skills
 
@@ -15,6 +15,7 @@ Reusable Codex and ChatGPT skills for fiction development and autonomous, eviden
 | [`launch-sales`](./launch-sales/) | Plan launches, relaunches, storefront conversion, promotions, email sequences, and sales operations. |
 | [`ads-growth`](./ads-growth/) | Design controlled paid-media experiments with budget caps, profitability thresholds, and approval gates. |
 | [`analytics-cfo`](./analytics-cfo/) | Turn sales and marketing data into contribution profit, CAC, ROAS, attribution, and stop/scale decisions. |
+| [`android-realtime-vision`](./android-realtime-vision/) | Build and debug real-time on-device computer vision on Android: CameraX, LiteRT/TFLite inference, and an aligned Compose bounding-box overlay. |
 
 ## Marketing office architecture
 

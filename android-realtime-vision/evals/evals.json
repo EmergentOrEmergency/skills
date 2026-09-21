@@ -1,0 +1,26 @@
+{
+  "skill_name": "android-realtime-vision",
+  "evals": [
+    {
+      "id": 0,
+      "name": "offset-boxes",
+      "prompt": "i box li disegno ma stanno tutti spostati rispetto al quadrifoglio vero, e piu' mi allontano dal centro peggio e'. uso PreviewView dentro un AndroidView con un Canvas sopra, il modello e' 320x320 e i frame dell'analyzer arrivano a 640x480. sul mio Pixel sembra quasi giusto, sul tablet e' completamente fuori. dove sbaglio?",
+      "expected_output": "Identifies the PreviewView FILL_CENTER crop (and the preview/analysis aspect-ratio mismatch) as the cause rather than suggesting tuned offsets; lays out the full inverse transform chain (un-letterbox, un-rotate, un-mirror, preview crop/scale); suggests the model-input-rectangle diagnostic and/or FIT_CENTER during development; recommends table-driven or round-trip tests over per-device tuning.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "greenfield-pipeline",
+      "prompt": "devo partire con l'app android: schermata unica con preview della fotocamera posteriore e i bounding box live sopra. ho gia' il modello detect.tflite (SSD 320x320 uint8) in assets con accanto un manifest json che descrive input, classi e soglie. Kotlin + Compose. dammi la struttura del progetto e il codice della pipeline.",
+      "expected_output": "Uses STRATEGY_KEEP_ONLY_LATEST with imageProxy.close() in finally on a single-thread executor; reads properties from the manifest instead of hardcoding them; feeds raw uint8 without normalizing; memory-maps the model and sets noCompress for tflite; letterboxes while recording scale/pad; decodes TFLite_Detection_PostProcess with [ymin,xmin,ymax,xmax] ordering; separates pure testable logic from Android types; mentions a golden-image parity test and temporal confirmation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "yolo-decoder",
+      "prompt": "exported my ultralytics yolov8n to tflite, single output tensor with shape [1, 5, 8400]. wrote the decoder in kotlin reading it as 8400 rows of 5 floats each. every detection comes out as a garbage box covering most of the screen with a score around 0.9. the same model works fine in python. what's wrong?",
+      "expected_output": "Identifies the transposed anchor axis (channels-first [1, 4+nc, anchors], so a naive row-major read mixes coordinates and scores) and prescribes transposing to per-anchor rows; explains the row layout is cx,cy,w,h + class scores with no separate objectness in v8; notes centre-to-corner conversion, the normalized-vs-pixel ambiguity to check empirically, and app-side NMS; recommends a golden-image parity test against the Python reference rather than guessing.",
+      "files": []
+    }
+  ]
+}

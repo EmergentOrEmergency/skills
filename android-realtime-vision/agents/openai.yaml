@@ -1,0 +1,4 @@
+interface:
+  display_name: "Android Real-Time Vision"
+  short_description: "Live camera + on-device detection on Android"
+  default_prompt: "Use $android-realtime-vision to wire a CameraX preview to an on-device LiteRT/TFLite detector, decode its output correctly, and draw aligned bounding boxes on the preview."
