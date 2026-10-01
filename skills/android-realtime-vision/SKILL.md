@@ -1,6 +1,7 @@
 ---
 name: android-realtime-vision
-description: Build and debug real-time on-device computer vision on Android — CameraX preview plus ImageAnalysis, LiteRT/TFLite inference, and a Compose bounding-box overlay. Use this whenever the work involves a live camera feed driving a model on the phone: wiring the analyzer, converting frames, decoding detector output, mapping boxes onto the preview, choosing delegates, or chasing symptoms like boxes offset or mirrored, detections that work on a saved photo but not live, growing frame latency, or results that differ from the Python reference. Also use it when planning such an app, even if the request only mentions "camera app", "object detection on phone", "TFLite model in an app", or "find X with the camera".
+description: >-
+  Build and debug real-time on-device computer vision on Android — CameraX preview plus ImageAnalysis, LiteRT/TFLite inference, and a Compose bounding-box overlay. Use this whenever the work involves a live camera feed driving a model on the phone: wiring the analyzer, converting frames, decoding detector output, mapping boxes onto the preview, choosing delegates, or chasing symptoms like boxes offset or mirrored, detections that work on a saved photo but not live, growing frame latency, or results that differ from the Python reference. Also use it when planning such an app, even if the request only mentions "camera app", "object detection on phone", "TFLite model in an app", or "find X with the camera".
 ---
 
 # Real-time vision on Android

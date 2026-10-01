@@ -1,0 +1,3 @@
+interface:
+  display_name: "Native Sdlc Specification"
+  short_description: "Define traceable, testable project requirements"
